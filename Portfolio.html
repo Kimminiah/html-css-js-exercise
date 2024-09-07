@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="desayn.css">
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="contacts.html">Contact Me</a></li>
+    </ul>
+</nav>
+
+<!-- Content of homepage... -->
+
+<section class="about-me" id="home">
+    <div class="profile-image">
+        <img src="kimminiah.jpg" alt="Your Name">
+    </div>
+    <h2 class="name">Patricia J. Gallego</h2>
+    <p class="introduction">
+        Nyahallooo!
+    </p>
+    <p class="introduction">
+      My name is Patricia, but you can call me Kimminiah! I'm a 3rd year BSCS student at De La Salle Lipa!
+    </p>
+</section>
+
+<section id="projects" class="portfolio">
+    <!-- Project 1: Healthy Buddy -->
+    <div class="project">
+      <img src="healthybuddy.png" alt="Healthy Buddy">
+      <div class="project-content">
+        <h3 class="project-title">Healthy Buddy</h3>
+        <p class="project-description">
+          A nutritional guide geared towards children and young adults.
+        </p>
+        <a href="#" class="project-button" onclick="openModal('modal-healthy-buddy')">View Project</a>
+      </div>
+    </div>
+  
+    <!-- Project 2: Innomove -->
+    <div class="project">
+      <img src="numba2.png" alt="Innomove">
+      <div class="project-content">
+        <h3 class="project-title">Innomove</h3>
+        <p class="project-description">
+          Navigate smarter with the best routes and optimal travel times.
+        </p>
+        <a href="#" class="project-button" onclick="openModal('modal-innomove')">View Project</a>
+      </div>
+    </div>
+  
+    <!-- Project 3: Night Bit Labs -->
+    <div class="project">
+      <img src="numba3.png" alt="Night Bit Labs">
+      <div class="project-content">
+        <h3 class="project-title">Night Bit Labs</h3>
+        <p class="project-description">
+          A tech lab focused on innovative solutions and creative development.
+        </p>
+        <a href="#" class="project-button" onclick="openModal('modal-night-bit-labs')">View Project</a>
+      </div>
+    </div>
+</section>
+
+<!-- Modals -->
+<!-- Modal for Healthy Buddy -->
+<div id="modal-healthy-buddy" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal-healthy-buddy')">&times;</span>
+        <h2>Healthy Buddy</h2>
+        <p>The general users of this project who are interested in the nutritional values of what they consume, and how they can actively improve their diet.</p>
+        <!-- Add more content as needed -->
+    </div>
+</div>
+
+<!-- Modal for Innomove -->
+<div id="modal-innomove" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal-innomove')">&times;</span>
+        <h2>Innomove</h2>
+        <p>To develop and implement an integrated transportation app that facilitates drivers for rerouting their destination by the algorithm of the traffic flow.</p>
+        <!-- Add more content as needed -->
+    </div>
+</div>
+
+<!-- Modal for Night Bit Labs -->
+<div id="modal-night-bit-labs" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal-night-bit-labs')">&times;</span>
+        <h2>Night Bit Labs</h2>
+        <p>This project is more likely used for the potential gamers that can be used as a way of communication to other players and for co-op purposes.</p>
+        <!-- Add more content as needed -->
+    </div>
+</div>
+
+<!-- JavaScript for Interactivity -->
+<script>
+    function openModal(modalId) {
+        document.getElementById(modalId).style.display = "block";
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        });
+    }
+</script>
+
+<script>
+        // Function to open contact modal
+        function openContactModal() {
+            var contactModal = document.getElementById('contactModal');
+            contactModal.style.display = 'block';
+        }
+
+        // Function to display alert on form submission
+        function submitContactForm(event) {
+            event.preventDefault(); // Prevent form from submitting the traditional way
+            alert('Thank you for reaching out, Patricia! I will get back to you soon.');
+            closeContactModal(); // Close the modal after submission
+        }
+
+        // Function to close contact modal
+        function closeContactModal() {
+            document.getElementById('contactModal').style.display = 'none';
+        }
+
+        // Change portfolio background color on project title click
+        document.querySelectorAll('.project-title').forEach(title => {
+            title.addEventListener('click', function() {
+                const colors = ['#f8b400', '#00bcd4', '#f44336', '#4caf50', '#9c27b0'];
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                document.querySelector('.portfolio').style.backgroundColor = randomColor;
+            });
+        });
+    </script>
+
+<!-- JavaScript Function -->
+<script>
+  function changeBackgroundColor(color) {
+    document.querySelector('.contact-me').style.backgroundColor = color;
+  }
+</script>
+
+  
+</body>
+</html>
